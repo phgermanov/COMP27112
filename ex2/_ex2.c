@@ -58,12 +58,13 @@ float myRand (void)
 
 /*****************************/
 
-void drawStarfield (void)
+void drawStarfield (void) /*                                  GYZ                        */
 {
   GLfloat x, y, z;
   glColor3f(1, 1, 1);
   glBegin(GL_POINTS);
-  for(int i = 0; i < NUMBER_OF_STARTS; i++)
+  int i;
+  for(i = 0; i < NUMBER_OF_STARTS; i++)
   {
     x = SOLAR_SYSTEM_SIZE*(2*myRand()-1);
     y = SOLAR_SYSTEM_SIZE*(2*myRand()-1);
@@ -114,8 +115,9 @@ void readSystem(void)
 
 /*****************************/
 
-void drawString (void *font, float x, float y, char *str)
+void drawString (void *font, float x, float y, char *str) /*         GYZ                 */
 { /* Displays the string "str" at (x,y,0), using font "font" */
+
   /* This is for you to complete. */
 
 }
@@ -135,7 +137,8 @@ void showDate(void)
   glPushMatrix();
   glLoadIdentity();
   glRasterPos3f(0.75, 0.02, 0.0);
-  for(char *ch = str; *ch; ch++)
+  char *ch;
+  for(*ch = str; *ch; ch++)
     glutBitmapCharacter(font, (int)*ch);
   glPopMatrix();
   glMatrixMode(GL_PROJECTION);
@@ -145,7 +148,7 @@ void showDate(void)
 
 /*****************************/
 
-void setView (void) {
+void setView (void) { /*                                                    GYZ               */
   glMatrixMode(GL_MODELVIEW);
   glLoadIdentity();
   switch (current_view) {
@@ -240,12 +243,13 @@ void animate(void)
 
 /*****************************/
 
-void drawOrbit (int n)
+void drawOrbit (int n) /*                                         GYZ                                   */
 { /* Draws a polygon to approximate the circular
      orbit of body "n" */
   glBegin(GL_LINE_LOOP);
   GLfloat angle = 0.0; // in radians
-  for(int i=0;i<ORBIT_POLY_SIDES;i++)
+  int i;
+  for(i=0;i<ORBIT_POLY_SIDES;i++)
   {
     glVertex3f(bodies[n].orbital_radius*RESCALE_FACTOR*cos(angle), bodies[n].orbital_radius*RESCALE_FACTOR*sin(angle), 0);
     angle += 2*PI/ORBIT_POLY_SIDES;
@@ -255,18 +259,19 @@ void drawOrbit (int n)
 
 /*****************************/
 
-void drawLabel(int n)
+void drawLabel(int n) /*                                         GYZ                                   */
 { /* Draws the name of body "n" */
   char *font = GLUT_BITMAP_HELVETICA_18;
   glRasterPos3f(0.75, 0.02, 0.0);
-  for(char *ch= bodies[n].name; *ch; ch++) 
+  char *ch;
+  for(*ch= bodies[n].name; *ch; ch++) 
     glutBitmapCharacter(font, (int)*ch);
     /* This is for you to complete. */
 }
 
 /*********************/
 
-void drawBody(int n)
+void drawBody(int n)  /*                                         GYZ                                   */
 {
   glRotatef(bodies[bodies[n].orbits_body].orbital_tilt, 0, 1, 0);
   glTranslatef(bodies[bodies[n].orbits_body].orbital_radius*cos(bodies[bodies[n].orbits_body].orbit * DEG_TO_RAD)*RESCALE_FACTOR, bodies[bodies[n].orbits_body].orbital_radius*sin(bodies[bodies[n].orbits_body].orbit * DEG_TO_RAD)*RESCALE_FACTOR, 0);
