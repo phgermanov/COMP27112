@@ -106,7 +106,7 @@ void readSystem(void)
 
     /* Initialise the body's state */
     bodies[i].spin= 0.0;
-    bodies[i].orbit= myRand() * 360.0; /* Start each body's orbit at a
+    bodies[i].orbit= myRand() * 360.0; /* Start each bodys orbit at a
                                           random angle */
     bodies[i].radius*= 1000.0; /* Magnify the radii to make them visible */
   }
