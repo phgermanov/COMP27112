@@ -264,7 +264,7 @@ void drawLabel(int n) /*                                         GYZ            
   char *font = GLUT_BITMAP_HELVETICA_18;
   glRasterPos3f(0.75, 0.02, 0.0);
   char *ch = malloc(sizeof(char)*100);
-  for(*ch= bodies[n].name; *ch; ch++) 
+  for(*ch= *bodies[n].name; *ch; ch++) 
     glutBitmapCharacter(font, (int)*ch);
     /* This is for you to complete. */
 }

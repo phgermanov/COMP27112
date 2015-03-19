@@ -23,7 +23,7 @@ Authors:     Toby Howard
 #define PI 3.14159
 #define DEG_TO_RAD 0.017453293
 #define ORBIT_POLY_SIDES 40
-#define TIME_STEP 0.05   /* days per frame */
+#define TIME_STEP 0.5   /* days per frame */
 #define SOLAR_SYSTEM_SIZE 1e12
 #define NUMBER_OF_STARTS 1000
 #define RESCALE_FACTOR 1e-3
